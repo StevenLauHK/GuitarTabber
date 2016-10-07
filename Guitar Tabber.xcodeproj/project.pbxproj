@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042D52EEB25B1BE0E56855ED /* Pods_Guitar_Tabber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F367E12AD3BE5D6C1332CA0B /* Pods_Guitar_Tabber.framework */; };
 		4919B2431DA795C200CF9978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919B2421DA795C200CF9978 /* AppDelegate.swift */; };
 		4919B2451DA795C200CF9978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4919B2441DA795C200CF9978 /* ViewController.swift */; };
 		4919B2481DA795C200CF9978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919B2461DA795C200CF9978 /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 		4919B2491DA795C200CF9978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4919B24C1DA795C200CF9978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4919B24E1DA795C200CF9978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5CAB7FD703F868DB1E2C7C4 /* Pods-Guitar Tabber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Tabber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Guitar Tabber/Pods-Guitar Tabber.debug.xcconfig"; sourceTree = "<group>"; };
+		EBB76213AB1C3921D506AF08 /* Pods-Guitar Tabber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Tabber.release.xcconfig"; path = "Pods/Target Support Files/Pods-Guitar Tabber/Pods-Guitar Tabber.release.xcconfig"; sourceTree = "<group>"; };
+		F367E12AD3BE5D6C1332CA0B /* Pods_Guitar_Tabber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Guitar_Tabber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042D52EEB25B1BE0E56855ED /* Pods_Guitar_Tabber.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		068AA199ADD6BB6CD6F11595 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5CAB7FD703F868DB1E2C7C4 /* Pods-Guitar Tabber.debug.xcconfig */,
+				EBB76213AB1C3921D506AF08 /* Pods-Guitar Tabber.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4919B2361DA795C200CF9978 = {
 			isa = PBXGroup;
 			children = (
 				4919B2411DA795C200CF9978 /* Guitar Tabber */,
 				4919B2401DA795C200CF9978 /* Products */,
+				068AA199ADD6BB6CD6F11595 /* Pods */,
+				D363061A686F09B94FAAFC63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = "Guitar Tabber";
 			sourceTree = "<group>";
 		};
+		D363061A686F09B94FAAFC63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F367E12AD3BE5D6C1332CA0B /* Pods_Guitar_Tabber.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4919B2511DA795C200CF9978 /* Build configuration list for PBXNativeTarget "Guitar Tabber" */;
 			buildPhases = (
+				51FFF3202D2B6F0599E637BE /* [CP] Check Pods Manifest.lock */,
 				4919B23B1DA795C200CF9978 /* Sources */,
 				4919B23C1DA795C200CF9978 /* Frameworks */,
 				4919B23D1DA795C200CF9978 /* Resources */,
+				97D0D2FF4232BED507260484 /* [CP] Embed Pods Frameworks */,
+				6F66860690C97536064E81FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +124,7 @@
 					4919B23E1DA795C200CF9978 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 86E9X4G324;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +159,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		51FFF3202D2B6F0599E637BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6F66860690C97536064E81FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Guitar Tabber/Pods-Guitar Tabber-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97D0D2FF4232BED507260484 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Guitar Tabber/Pods-Guitar Tabber-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4919B23B1DA795C200CF9978 /* Sources */ = {
@@ -257,6 +333,7 @@
 		};
 		4919B2521DA795C200CF9978 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5CAB7FD703F868DB1E2C7C4 /* Pods-Guitar Tabber.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 86E9X4G324;
@@ -270,6 +347,7 @@
 		};
 		4919B2531DA795C200CF9978 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBB76213AB1C3921D506AF08 /* Pods-Guitar Tabber.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 86E9X4G324;
@@ -300,6 +378,7 @@
 				4919B2531DA795C200CF9978 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
