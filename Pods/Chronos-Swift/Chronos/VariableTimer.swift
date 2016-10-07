@@ -119,9 +119,9 @@ open class VariableTimer : NSObject, RepeatingTimer {
     
     - returns: A newly created VariableTimer object.
     */
-    convenience public init(closure: ExecutionClosure, intervalProvider: IntervalClosure) {
+    convenience public init(closure: @escaping ExecutionClosure, intervalProvider: IntervalClosure) {
         let name    = "\(queuePrefix).\(UUID().uuidString)"
-        let queue   = DispatchQueue(label: (name as NSString).utf8String, attributes: [])
+        let queue   = DispatchQueue(label: name as String, attributes: [])
         self.init(closure: closure, intervalProvider: intervalProvider, queue: queue)
     }
     

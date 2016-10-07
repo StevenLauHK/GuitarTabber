@@ -1,3 +1,4 @@
+
 //
 //  ChronosTests.swift
 //  Chronos
@@ -108,9 +109,9 @@ open class DispatchTimer : NSObject, RepeatingTimer {
     
     - returns: A newly created DispatchTimer object.
     */
-    convenience public init(interval: Double, closure: ExecutionClosure) {
+    convenience public init(interval: Double, closure: @escaping ExecutionClosure) {
         let name = "\(queuePrefix).\(UUID().uuidString)"
-        let queue = DispatchQueue(label: (name as NSString).utf8String, attributes: [])
+        let queue = DispatchQueue(label: name as String, attributes: [])
         self.init(interval: interval, closure: closure, queue: queue)
     }
     
@@ -177,8 +178,9 @@ open class DispatchTimer : NSObject, RepeatingTimer {
     open func start(_ now: Bool) {
         validate()
         if let timer = timer , OSAtomicCompareAndSwap32Barrier(State.paused, State.running, &running) {
-            timer.setTimer(start: startTime(interval, now: now), interval: UInt64(interval * Double(NSEC_PER_SEC)), leeway: leeway)
+            timer.scheduleRepeating(deadline: .miliseconds(DispatchTime.init(uptimeNanoseconds: UInt64(100000))), interval: .miliseconds(interval * Double(NSEC_PER_SEC)), leeway: .miliseconds(leeway))
             timer.resume()
+            timer.self
         }
     }
     
