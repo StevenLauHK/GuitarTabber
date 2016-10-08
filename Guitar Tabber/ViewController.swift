@@ -4,7 +4,7 @@
 //
 //  Created by Lau Kin Wai on 7/10/2016.
 //  Copyright © 2016年 EE4304. All rights reserved.
-//gu
+
 
 import UIKit
 
@@ -20,7 +20,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func hi (){}
 
 
 }
+
 
