@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     }
     
     func hi (){}
+    
+    func test2(){}
 
 
 }
