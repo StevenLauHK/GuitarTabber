@@ -1,4 +1,3 @@
-
 //
 //  ChronosTests.swift
 //  Chronos
@@ -37,22 +36,22 @@ private let queuePrefix = "com.chronos.dispatchTimer"
 // MARK:- DispatchTimer Implementation
 
 /**
-A DispatchTimer allows you to create a Grand Central Dispatch-based timer
-object. A timer waits until a certain time interval has elapsed and then
-fires, executing a given closure.
-
-A timer has limited accuracy when determining the exact moment to fire; the
-actual time at which a timer fires can potentially be a significant period
-of time after the scheduled firing time. However, successive fires are
-guarenteed to occur in order.
-*/
+ A DispatchTimer allows you to create a Grand Central Dispatch-based timer
+ object. A timer waits until a certain time interval has elapsed and then
+ fires, executing a given closure.
+ A timer has limited accuracy when determining the exact moment to fire; the
+ actual time at which a timer fires can potentially be a significant period
+ of time after the scheduled firing time. However, successive fires are
+ guarenteed to occur in order.
+ */
 @objc
 @available (iOS, introduced: 8.0)
 @available (OSX, introduced: 10.10)
 open class DispatchTimer : NSObject, RepeatingTimer {
+    
     fileprivate var valid       = State.invalid
     fileprivate var running     = State.paused
-    fileprivate var timer:  DispatchSource?
+    fileprivate var timer:  DispatchSourceTimer
     fileprivate var leeway: UInt64 {
         return UInt64(0.05 * interval) * NSEC_PER_SEC;
     }
@@ -60,37 +59,37 @@ open class DispatchTimer : NSObject, RepeatingTimer {
     // MARK: Properties
     
     /**
-    The timer's execution queue.
-    */
+     The timer's execution queue.
+     */
     open let queue: DispatchQueue!
     
     /**
-    The timer's execution interval, in seconds.
-    */
+     The timer's execution interval, in seconds.
+     */
     open let interval: Double!
     
     /**
-    The timer's execution closure.
-    */
+     The timer's execution closure.
+     */
     open let closure: ExecutionClosure!
     
     /**
-    The number of times the execution closure has been executed.
-    */
+     The number of times the execution closure has been executed.
+     */
     open fileprivate(set) var count = 0
     
     /**
-    true, if the timer is valid; otherwise, false.
-    
-    A timer is considered valid if it has not been canceled.
-    */
+     true, if the timer is valid; otherwise, false.
+     
+     A timer is considered valid if it has not been canceled.
+     */
     open var isValid: Bool {
         return (valid == State.valid)
     }
     
     /**
-    true, if the timer is currently running; otherwise, false.
-    */
+     true, if the timer is currently running; otherwise, false.
+     */
     open var isRunning: Bool {
         return (running == State.running)
     }
@@ -102,54 +101,32 @@ open class DispatchTimer : NSObject, RepeatingTimer {
     // MARK: Creating a Dispatch Timer
     
     /**
-    Creates a DispatchTimer object.
-    
-    - parameter interval:        The execution interval, in seconds.
-    - parameter closure:         The closure to execute at the given interval.
-    
-    - returns: A newly created DispatchTimer object.
-    */
+     Creates a DispatchTimer object.
+     
+     - parameter interval:        The execution interval, in seconds.
+     - parameter closure:         The closure to execute at the given interval.
+     
+     - returns: A newly created DispatchTimer object.
+     */
     convenience public init(interval: Double, closure: @escaping ExecutionClosure) {
         let name = "\(queuePrefix).\(UUID().uuidString)"
-        let queue = DispatchQueue(label: name as String, attributes: [])
+        let queue = DispatchQueue(label: name, attributes: [])
         self.init(interval: interval, closure: closure, queue: queue)
     }
     
     /**
-    Creates a DispatchTimer object.
-    
-    - parameter interval:        The execution interval, in seconds.
-    - parameter closure:         The closure to execute at the given interval.
-    - parameter queue:           The queue that should execute the given closure.
-    
-    - returns: A newly created DispatchTimer object.
-    */
-    convenience public init(interval: Double, closure: @escaping ExecutionClosure, queue: DispatchQueue) {
-        self.init(interval: interval, closure: closure, queue: queue, failureClosure: nil)
-    }
-    
-    /**
-    Creates a DispatchTimer object.
-    
-    - parameter interval:        The execution interval, in seconds.
-    - parameter closure:         The closure to execute at the given interval.
-    - parameter queue:           The queue that should execute the given closure.
-    - parameter failureClosure:  The closure to execute if creation fails.
-    
-    - returns: A newly created DispatchTimer object.
-    */
-    public init(interval: Double, closure: @escaping ExecutionClosure, queue: DispatchQueue, failureClosure: FailureClosure) {
-        if let timer = DispatchSource.makeTimerSource(flags: DispatchSource.TimerFlags(rawValue: UInt(0)), queue: queue) /*Migrator FIXME: Use DispatchSourceTimer to avoid the cast*/ as! DispatchSource {
-            self.timer = timer
-            self.valid = State.valid
-        } else {
-            if let failureClosure = failureClosure {
-                failureClosure()
-            } else {
-                print("Failed to create dispatch source for timer.")
-            }
-        }
-        
+     Creates a DispatchTimer object.
+     
+     - parameter interval:        The execution interval, in seconds.
+     - parameter closure:         The closure to execute at the given interval.
+     - parameter queue:           The queue that should execute the given closure.
+     - parameter failureClosure:  The closure to execute if creation fails.
+     
+     - returns: A newly created DispatchTimer object.
+     */
+    public init(interval: Double, closure: @escaping ExecutionClosure, queue: DispatchQueue) {
+        self.timer = DispatchSource.makeTimerSource(queue: queue)
+        self.valid = State.valid
         self.queue      = queue
         self.interval   = interval
         self.closure    = closure
@@ -158,12 +135,10 @@ open class DispatchTimer : NSObject, RepeatingTimer {
         
         weak var weakSelf: DispatchTimer? = self
         
-        if let timer = timer {
-            timer.setEventHandler {
-                if let strongSelf = weakSelf {
-                    strongSelf.closure(strongSelf, strongSelf.count)
-                    strongSelf.count += 1
-                }
+        timer.setEventHandler {
+            if let strongSelf = weakSelf {
+                strongSelf.closure(strongSelf, strongSelf.count)
+                strongSelf.count += 1
             }
         }
     }
@@ -171,52 +146,49 @@ open class DispatchTimer : NSObject, RepeatingTimer {
     // MARK: Using a Dispatch Timer
     
     /**
-    Starts the timer.
-    
-    - parameter now:     true, if the timer should fire immediately.
-    */
+     Starts the timer.
+     
+     - parameter now:     true, if the timer should fire immediately.
+     */
     open func start(_ now: Bool) {
         validate()
-        if let timer = timer , OSAtomicCompareAndSwap32Barrier(State.paused, State.running, &running) {
-            timer.scheduleRepeating(deadline: .miliseconds(DispatchTime.init(uptimeNanoseconds: UInt64(100000))), interval: .miliseconds(interval * Double(NSEC_PER_SEC)), leeway: .miliseconds(leeway))
+        if OSAtomicCompareAndSwap32Barrier(State.paused, State.running, &running) {
+            timer.scheduleRepeating(deadline: startTime(interval, now: now), interval: DispatchTimeInterval.nanoseconds(Int(interval.multiplied(by: Double(NSEC_PER_SEC)))))
             timer.resume()
-            timer.self
         }
     }
     
     /**
-    Pauses the timer and does not reset the count.
-    */
+     Pauses the timer and does not reset the count.
+     */
     open func pause() {
         validate()
-        if let timer = timer , OSAtomicCompareAndSwap32Barrier(State.running, State.paused, &running) {
+        if OSAtomicCompareAndSwap32Barrier(State.running, State.paused, &running) {
             timer.suspend()
         }
     }
     
     /**
-    Permanently cancels the timer.
-    
-    Attempting to start or pause an invalid timer is considered an error and will throw an exception.
-    */
+     Permanently cancels the timer.
+     
+     Attempting to start or pause an invalid timer is considered an error and will throw an exception.
+     */
     open func cancel() {
         if OSAtomicCompareAndSwap32Barrier(State.valid, State.invalid, &valid) {
-            if let timer = timer {
-                if running == State.paused {
-                    timer.resume()
-                }
-                
-                running = State.paused
-                timer.cancel()
+            if running == State.paused {
+                timer.resume()
             }
+            
+            running = State.paused
+            timer.cancel()
         }
     }
     
     fileprivate func validate() {
         if valid != State.valid {
             NSException(name: NSExceptionName.internalInconsistencyException,
-                reason: "Attempting to use invalid DispatchTimer",
-                userInfo: nil).raise()
+                        reason: "Attempting to use invalid DispatchTimer",
+                        userInfo: nil).raise()
         }
     }
 }

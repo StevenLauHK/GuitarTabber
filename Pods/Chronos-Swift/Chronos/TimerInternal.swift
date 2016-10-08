@@ -32,14 +32,8 @@ internal func startTime(_ interval: Double, now: Bool) -> DispatchTime {
 // MARK:- Type Aliases
 
 /**
-The closure to execute if the timer fails to create a dispatch source.
-*/
-public typealias FailureClosure     = ((Void) -> Void)?
-
-/**
-The closure to execute when the timer fires.
-
-- parameter timer:   The timer that fired.
-- parameter count:   The current invocation count. The first count is 0.
-*/
+ The closure to execute when the timer fires.
+ - parameter timer:   The timer that fired.
+ - parameter count:   The current invocation count. The first count is 0.
+ */
 public typealias ExecutionClosure   = ((RepeatingTimer, Int) -> Void)

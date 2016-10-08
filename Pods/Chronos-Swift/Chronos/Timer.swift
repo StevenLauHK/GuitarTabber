@@ -31,43 +31,43 @@ import Foundation
 // MARK:- Timer Protocol
 
 /**
-Types adopting the Timer protocol can be used to implement methods to control
-a timer.
-*/
+ Types adopting the Timer protocol can be used to implement methods to control
+ a timer.
+ */
 @objc
 public protocol Timer {
     
     // MARK: Properties
     
     /**
-    The timer's execution queue.
-    */
+     The timer's execution queue.
+     */
     var queue: DispatchQueue! { get }
     
     /**
-    Returns whether the timer is valid or not.
-    */
+     Returns whether the timer is valid or not.
+     */
     var isValid: Bool { get }
     
     /**
-    Returns whether the timer is running or not.
-    */
+     Returns whether the timer is running or not.
+     */
     var isRunning: Bool { get }
     
     /**
-    Starts the timer
-    
-    - parameter now: true, if timer starts immediately; false, otherwise.
-    */
+     Starts the timer
+     
+     - parameter now: true, if timer starts immediately; false, otherwise.
+     */
     func start(_ now: Bool)
     
     /**
-    Pauses the timer.
-    */
+     Pauses the timer.
+     */
     func pause()
     
     /**
-    Cancels and invalidates the timer.
-    */
+     Cancels and invalidates the timer.
+     */
     func cancel()
 }
