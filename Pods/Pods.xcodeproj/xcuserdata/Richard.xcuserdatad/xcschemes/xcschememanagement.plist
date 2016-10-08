@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>AudioKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Chronos-Swift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Pods-Guitar Tabber.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>TuningFork.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>06B31D1C084469F85F86EC48C0406A6E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0C4798DD7FEBB19BDBADFFBB2F4F8748</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5EECCD049B5A1BBC2B4117857B86C637</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E95676177CDB58F5574DD9788D1F3F2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
