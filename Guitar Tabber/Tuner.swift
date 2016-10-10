@@ -22,7 +22,7 @@ class GuitarTuner: TunerDelegate {
         tuner = Tuner()
         pitch = ""
         octave = 0
-        distance = 0f
+        distance = 0.0
         tuner.delegate = self
         tuner.start()
     }
