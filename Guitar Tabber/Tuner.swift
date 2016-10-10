@@ -27,7 +27,7 @@ class GuitarTuner: TunerDelegate {
         tuner.start()
     }
 
-    private func tunerDidUpdate(tuner: Tuner, output: TunerOutput) {
+    internal func tunerDidUpdate(tuner: Tuner, output: TunerOutput) {
         pitch = output.pitch
         octave = output.octave
         distance = output.distance
