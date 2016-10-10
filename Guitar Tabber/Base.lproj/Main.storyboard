@@ -6,29 +6,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
-        <scene sceneID="cYP-w8-0Ua">
+        <!--Item-->
+        <scene sceneID="bDA-oA-Lu0">
             <objects>
-                <viewController id="Njo-R4-adJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="p8O-vD-gan"/>
-                        <viewControllerLayoutGuide type="bottom" id="IjS-RN-IRy"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CvT-0e-0GI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="bDi-io-cqh"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mnI-cG-aZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="uuQ-sf-UtN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="a2X-3P-U3t"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7La-9a-pok">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="R7R-wK-DAP" kind="relationship" relationship="rootViewController" id="L1n-pI-Onv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b84-ZL-PJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="91"/>
+            <point key="canvasLocation" x="47" y="-668"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="CKb-YG-0dZ">
             <objects>
-                <viewController id="R7R-wK-DAP" sceneMemberID="viewController">
+                <viewController id="R7R-wK-DAP" customClass="ViewController" customModule="Guitar_Tabber" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eFc-6W-Lix"/>
                         <viewControllerLayoutGuide type="bottom" id="gq4-Id-JQ8"/>
@@ -36,13 +34,44 @@
                     <view key="view" contentMode="scaleToFill" id="9Iu-xr-juX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gm-KR-Xx8">
+                                <frame key="frameInset" minX="16" minY="312" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9N-on-Dhf">
+                                <frame key="frameInset" minX="137" minY="183" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="recoderStart:" destination="R7R-wK-DAP" eventType="touchUpInside" id="PAu-ql-b7t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hq8-Fe-TI0">
+                                <frame key="frameInset" minX="164" minY="249" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopAction:" destination="R7R-wK-DAP" eventType="touchUpInside" id="hVq-hm-uAC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="Cns-sX-EQR"/>
+                    <navigationItem key="navigationItem" id="R2p-Qh-Yrn"/>
+                    <connections>
+                        <outlet property="noteLabel" destination="9gm-KR-Xx8" id="d9s-ei-Emg"/>
+                        <outlet property="recorder" destination="v9N-on-Dhf" id="bIs-CX-Rwa"/>
+                        <outlet property="stopButton" destination="Hq8-Fe-TI0" id="NPM-wR-wQy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLL-B2-q1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46" y="-600"/>
+            <point key="canvasLocation" x="1097" y="-566"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pJh-fU-PRD">
@@ -54,33 +83,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="R7R-wK-DAP" kind="relationship" relationship="viewControllers" id="Hmq-F1-yFQ"/>
-                        <segue destination="Njo-R4-adJ" kind="relationship" relationship="viewControllers" id="PXh-DR-JGf"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="WvC-o7-vry"/>
+                        <segue destination="uuQ-sf-UtN" kind="relationship" relationship="viewControllers" id="lxa-ZI-zaF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4c-jC-O41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-874" y="47"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Guitar_Tabber" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="kQ4-1x-OZG"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="46" y="829"/>
         </scene>
     </scenes>
 </document>

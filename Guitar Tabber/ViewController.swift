@@ -10,11 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //var abcde
-
+    @IBOutlet var recorder: UIButton!
+    
+    
+    @IBOutlet var stopButton: UIButton!
+    @IBOutlet var noteLabel: UILabel!
+    
+    
+    
+    @IBAction func stopAction(_ sender: AnyObject) {
+        
+    }
+    @IBAction func recoderStart(_ sender: AnyObject) {
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // alsdkjfn
         // Do any additional setup after loading the view, typically from a nib.
     }
 
