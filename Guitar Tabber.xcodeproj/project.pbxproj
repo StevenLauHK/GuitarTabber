@@ -13,6 +13,8 @@
 		4919B2481DA795C200CF9978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919B2461DA795C200CF9978 /* Main.storyboard */; };
 		4919B24A1DA795C200CF9978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4919B2491DA795C200CF9978 /* Assets.xcassets */; };
 		4919B24D1DA795C200CF9978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919B24B1DA795C200CF9978 /* LaunchScreen.storyboard */; };
+		49CE402D1DAB603B001E7425 /* GuitarTuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE402B1DAB603B001E7425 /* GuitarTuner.swift */; };
+		49CE402E1DAB603B001E7425 /* RawNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE402C1DAB603B001E7425 /* RawNote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		4919B2491DA795C200CF9978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4919B24C1DA795C200CF9978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4919B24E1DA795C200CF9978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49CE402B1DAB603B001E7425 /* GuitarTuner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarTuner.swift; sourceTree = "<group>"; };
+		49CE402C1DAB603B001E7425 /* RawNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawNote.swift; sourceTree = "<group>"; };
 		C5CAB7FD703F868DB1E2C7C4 /* Pods-Guitar Tabber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Tabber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Guitar Tabber/Pods-Guitar Tabber.debug.xcconfig"; sourceTree = "<group>"; };
 		EBB76213AB1C3921D506AF08 /* Pods-Guitar Tabber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Tabber.release.xcconfig"; path = "Pods/Target Support Files/Pods-Guitar Tabber/Pods-Guitar Tabber.release.xcconfig"; sourceTree = "<group>"; };
 		F367E12AD3BE5D6C1332CA0B /* Pods_Guitar_Tabber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Guitar_Tabber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +74,8 @@
 		4919B2411DA795C200CF9978 /* Guitar Tabber */ = {
 			isa = PBXGroup;
 			children = (
+				49CE402B1DAB603B001E7425 /* GuitarTuner.swift */,
+				49CE402C1DAB603B001E7425 /* RawNote.swift */,
 				4919B2421DA795C200CF9978 /* AppDelegate.swift */,
 				4919B2441DA795C200CF9978 /* ViewController.swift */,
 				4919B2461DA795C200CF9978 /* Main.storyboard */,
@@ -213,6 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CE402E1DAB603B001E7425 /* RawNote.swift in Sources */,
+				49CE402D1DAB603B001E7425 /* GuitarTuner.swift in Sources */,
 				4919B2451DA795C200CF9978 /* ViewController.swift in Sources */,
 				4919B2431DA795C200CF9978 /* AppDelegate.swift in Sources */,
 			);

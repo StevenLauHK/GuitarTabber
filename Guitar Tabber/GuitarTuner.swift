@@ -10,15 +10,18 @@ import Foundation
 import TuningFork
 
 class GuitarTuner: TunerDelegate {
-    private var tuner: Tuner
+    public var tuner: Tuner
 
     private var pitch: String
     private var octave: Int
     public private(set) var distance: Float
 
+    
+
     public var note: String { get { return pitch + String(octave) } }
 
     init() {
+        
         tuner = Tuner()
         pitch = ""
         octave = 0
@@ -31,7 +34,11 @@ class GuitarTuner: TunerDelegate {
         pitch = output.pitch
         octave = output.octave
         distance = output.distance
+        print(output.pitch, output.octave)
     }
     
+    
+    
+
     //
 }

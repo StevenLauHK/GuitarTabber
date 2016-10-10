@@ -10,7 +10,7 @@ class RawNote {
 
     init(pitch p: String, octave o: Int, distance dis: Float, duration d: Float) {
         octave = o
-        distance = dis
+        distances = dis
         duration = d
         switch p {
         case notes[0]:
