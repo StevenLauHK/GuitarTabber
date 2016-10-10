@@ -78,7 +78,6 @@
         <!--Item-->
         <scene sceneID="WFf-1b-4mc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8CE-gC-8Px" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="Vbj-Ko-Nk2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="0v8-ui-zB3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Omu-v7-Wmc">
@@ -89,6 +88,7 @@
                         <segue destination="rpS-l2-3Za" kind="relationship" relationship="rootViewController" id="lIX-0a-CtN"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8CE-gC-8Px" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-71" y="-110"/>
         </scene>
