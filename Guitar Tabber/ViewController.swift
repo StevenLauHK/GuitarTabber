@@ -10,21 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var recorder: UIButton!
-    
-    
-    @IBOutlet var stopButton: UIButton!
-    @IBOutlet var noteLabel: UILabel!
-    
-    
-    
-    @IBAction func stopAction(_ sender: AnyObject) {
-        
-    }
-    @IBAction func recoderStart(_ sender: AnyObject) {
-        
-        
-    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
