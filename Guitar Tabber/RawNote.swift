@@ -4,14 +4,22 @@ class RawNote {
     public private(set) var pitch: Int
     public private(set) var octave: Int
     public private(set) var distances: Float
-    public private(set) var duration: Float
+    
+    private var startTime: Double
+    private var endTime: Double
+    
+    public var duration: Float {
+        get {
+            return (Float) (endTime - startTime)
+        }
+    }
 
     public let notes = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
 
-    init(pitch p: String, octave o: Int, distance dis: Float, duration d: Float) {
+    init(pitch p: String, octave o: Int, distance dis: Float) {
         octave = o
         distances = dis
-        duration = d
+        startTime = timeIntervalSince1970
         switch p {
         case notes[0]:
           pitch = 0
@@ -42,5 +50,9 @@ class RawNote {
         default:
           pitch = -1
         }
+    }
+    
+    public func finishNote() {
+        endTime = NSTimeIntervalSince1970
     }
 }
