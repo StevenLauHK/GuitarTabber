@@ -19,7 +19,7 @@ class RawNote {
     init(pitch p: String, octave o: Int, distance dis: Float) {
         octave = o
         distances = dis
-        startTime = timeIntervalSince1970
+        startTime = NSTimeIntervalSince1970
         switch p {
         case notes[0]:
           pitch = 0

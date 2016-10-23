@@ -17,7 +17,7 @@ class NoteRecogniser: TunerDelegate {
     let loweThreshold: Double = 10.0 // we'll have to test it and modify
     let upperThreshold: Double = 2.0 // same
     
-    func tunerDidUpdate(tuner: Tuner, output: TunerOutput) {
+    func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
         let pitch = output.pitch
         let octave = output.octave
         let amplitude = output.amplitude
