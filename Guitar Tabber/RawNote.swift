@@ -1,6 +1,6 @@
 import Foundation
 
-/*class RawNote {
+class RawNote {
     public private(set) var pitch: Int
     public private(set) var octave: Int
     public private(set) var distances: Float
@@ -20,6 +20,7 @@ import Foundation
         octave = o
         distances = dis
         startTime = NSTimeIntervalSince1970
+        endTime = startTime
         switch p {
         case notes[0]:
           pitch = 0
@@ -52,7 +53,7 @@ import Foundation
         }
     }
     
-    public func finishNote() {
+    public func finish() {
         endTime = NSTimeIntervalSince1970
     }
-}*/
+}

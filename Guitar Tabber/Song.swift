@@ -9,7 +9,7 @@
 import Foundation
 import Darwin
 
-/*enum NoteDuration: Int {
+enum NoteDuration: Int {
     case semibreve = 1, minim = 2, crotchet = 4, quaver = 8, semiquaver = 16, demisemiquaver = 32, hemidemisemiquaver = 64
     
     public func getDuration() -> Float {
@@ -44,13 +44,14 @@ class Note {
     }
     
     // Creates a new silence
-    public init(silenceDuration duration: NoteDuration) {
+    public init(silenceDuration duration: NoteDuration, isLigated ligated: Bool =
+        false, isDotted dotted: Bool = false) {
         noteDuration = duration
         pitch = 0
         octave = 0
+        self.dotted = dotted
+        self.ligated = ligated
     }
-    
-
 }
 
 class Compass {
@@ -64,8 +65,9 @@ class Compass {
     }
     
     init(copy compass: Compass) {
-        
         notes = compass.notes
+        tempo = compass.tempo
+        timeSignature = compass.timeSignature
     }
     
     // Tries to inserts the note in the compass and returns true if it can, false if it can't
@@ -111,7 +113,7 @@ class Song {
     // Returns the lenght of the a song compass in seconds
     public var compassTimeInSeconds: Float {
         get {
-            return 60.0 / tempo * NoteDuration.init(rawValue: timeSignature.1)?.getDuration()
+            return 60.0 / Float(tempo) * NoteDuration.init(rawValue: timeSignature.1)!.getDuration()
         }
     }
     
@@ -125,16 +127,16 @@ class Song {
     public func insertRawNote(noteToInsert rawNote: RawNote) {
         // Gets the raw note and aproximates the real duration to a theorical one
         let rawDuration: Double = Double(rawNote.duration / compassTimeInSeconds)
-        let duration = pow(round(log2(rawDuration), 2)
+        let duration = Int(pow(round(log2(rawDuration)), 2))
 
-        let type = NoteDuration.init(rawValue: duration)
-        //var note: Note
+        let type = NoteDuration.init(rawValue: duration)!
+        var note: Note
 
         // if the note pitch is -1, creates a silence
         if rawNote.pitch == -1 {
-            note = Note(duration: duration)
+            note = Note(silenceDuration: type)
         } else {
-            note = Note(duration: duration, pitch: rawNote.pitch, octave: rawNote.octave)
+            note = Note(noteDuration: type, pitch: rawNote.pitch, octave: rawNote.octave)
         }
 
         var lastCompass = compasses[compasses.endIndex - 1]
@@ -143,10 +145,10 @@ class Song {
         // compasses and tries to fit the note in them recursively
         if !lastCompass.insertNote(note: note) {
             repeat {
-                let newNote = lastCompass.insertPartial(note: note)
+                note = lastCompass.insertPartial(note: note)
                 compasses.append(Compass(signature: timeSignature, tempo: tempo))
                 lastCompass = compasses[compasses.endIndex - 1]
             } while (!lastCompass.insertNote(note: note))
         }
     }
-}*/
+}

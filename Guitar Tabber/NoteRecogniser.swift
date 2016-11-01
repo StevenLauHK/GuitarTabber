@@ -9,13 +9,13 @@
 import Foundation
 import TuningFork
 
-/*class NoteRecogniser: TunerDelegate {
+class NoteRecogniser: TunerDelegate {
     var song: Song
     var currentNote: RawNote?
 
     // The thresholds for detecting end and begining of note
-    let loweThreshold: Double = 10.0 // we'll have to test it and modify
-    let upperThreshold: Double = 2.0 // same
+    let lowerThreshold: Float = 10.0 // we'll have to test it and modify
+    let upperThreshold: Float = 2.0 // same
     
     func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
         let pitch = output.pitch
@@ -27,25 +27,25 @@ import TuningFork
         if amplitude > upperThreshold {
             if let note = currentNote {
                 note.finish()
-                song.insertRawNote(note)
+                song.insertRawNote(noteToInsert: note)
             }
-            currentNote = RawNote(pitch, octave, distance)
+            currentNote = RawNote(pitch: pitch, octave: octave, distance: distance)
         }
 
         // If the lower threshold is surpassed, finishes the current note and create a new silence
-        if amplitude < lowerThrewhold {
+        if amplitude < lowerThreshold {
             if let note = currentNote {
                 note.finish()
-                song.insertRawNote(note)
+                song.insertRawNote(noteToInsert: note)
             }
-            currentNote = RawNote("", 0, 0)
+            currentNote = RawNote(pitch: "", octave: 0, distance: 0)
         }
     }
 
-    init() {
-       let tuner = Tuner()
-       let delegate = MyTunerDelegate()
-       tuner.delegate = delegate
-       tuner.start()
+    init(song: Song) {
+        self.song = song
+        let tuner = Tuner()
+        tuner.delegate = self
+        tuner.start()
     }
-}*/
+}
