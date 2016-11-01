@@ -151,7 +151,6 @@ A Tuner uses the devices microphone and interprets the frequency, pitch, etc.
     AKSettings.shared().audioInputEnabled = true
     microphone.start()
     analyzer.start()
-    
     if timer == nil {
       timer = DispatchTimer(interval: 0.03, closure: { (t, i) -> Void in
         if let d = self.delegate {
@@ -169,6 +168,10 @@ A Tuner uses the devices microphone and interprets the frequency, pitch, etc.
     
     timer?.start(true)
   }
+    
+    open func getMicrophone() -> AKMicrophone{
+        return microphone
+    }
   
   /**
   Stops the tuner.

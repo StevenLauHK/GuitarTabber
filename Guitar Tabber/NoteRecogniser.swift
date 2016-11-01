@@ -9,7 +9,7 @@
 import Foundation
 import TuningFork
 
-class NoteRecogniser: TunerDelegate {
+/*class NoteRecogniser: TunerDelegate {
     var song: Song
     var currentNote: RawNote?
 
@@ -48,4 +48,4 @@ class NoteRecogniser: TunerDelegate {
        tuner.delegate = delegate
        tuner.start()
     }
-}
+}*/

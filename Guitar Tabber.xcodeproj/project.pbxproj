@@ -13,6 +13,7 @@
 		4919B2481DA795C200CF9978 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919B2461DA795C200CF9978 /* Main.storyboard */; };
 		4919B24A1DA795C200CF9978 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4919B2491DA795C200CF9978 /* Assets.xcassets */; };
 		4919B24D1DA795C200CF9978 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4919B24B1DA795C200CF9978 /* LaunchScreen.storyboard */; };
+		494298031DBE452200722340 /* Song_Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494298021DBE452200722340 /* Song_Page.swift */; };
 		49CE402D1DAB603B001E7425 /* GuitarTuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE402B1DAB603B001E7425 /* GuitarTuner.swift */; };
 		49CE402E1DAB603B001E7425 /* RawNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE402C1DAB603B001E7425 /* RawNote.swift */; };
 		49CE40341DAB8991001E7425 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE40331DAB8991001E7425 /* TableViewController.swift */; };
@@ -29,6 +30,7 @@
 		4919B2491DA795C200CF9978 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4919B24C1DA795C200CF9978 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4919B24E1DA795C200CF9978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		494298021DBE452200722340 /* Song_Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song_Page.swift; sourceTree = "<group>"; };
 		49CE402B1DAB603B001E7425 /* GuitarTuner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuitarTuner.swift; sourceTree = "<group>"; };
 		49CE402C1DAB603B001E7425 /* RawNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawNote.swift; sourceTree = "<group>"; };
 		49CE40331DAB8991001E7425 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				4919B24B1DA795C200CF9978 /* LaunchScreen.storyboard */,
 				4919B24E1DA795C200CF9978 /* Info.plist */,
 				49CE40331DAB8991001E7425 /* TableViewController.swift */,
+				494298021DBE452200722340 /* Song_Page.swift */,
 			);
 			path = "Guitar Tabber";
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			files = (
 				49CE402E1DAB603B001E7425 /* RawNote.swift in Sources */,
 				49CE402D1DAB603B001E7425 /* GuitarTuner.swift in Sources */,
+				494298031DBE452200722340 /* Song_Page.swift in Sources */,
 				4919B2451DA795C200CF9978 /* ViewController.swift in Sources */,
 				49CE40361DAB9B36001E7425 /* TableViewCell.swift in Sources */,
 				49FCDE0A1DBB91E400D70B6E /* Song.swift in Sources */,
@@ -304,7 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -347,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

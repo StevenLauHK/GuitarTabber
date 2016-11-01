@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
 
+    @IBOutlet var playImage: UIImageView!
+    
+    @IBOutlet var songName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

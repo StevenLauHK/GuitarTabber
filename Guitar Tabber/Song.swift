@@ -9,7 +9,7 @@
 import Foundation
 import Darwin
 
-enum NoteDuration: Int {
+/*enum NoteDuration: Int {
     case semibreve = 1, minim = 2, crotchet = 4, quaver = 8, semiquaver = 16, demisemiquaver = 32, hemidemisemiquaver = 64
     
     public func getDuration() -> Float {
@@ -111,7 +111,7 @@ class Song {
     // Returns the lenght of the a song compass in seconds
     public var compassTimeInSeconds: Float {
         get {
-            return 60.0 / tempo * NoteType.init(rawValue: timeSignature.1)?.getDuration()
+            return 60.0 / tempo * NoteDuration.init(rawValue: timeSignature.1)?.getDuration()
         }
     }
     
@@ -127,8 +127,8 @@ class Song {
         let rawDuration: Double = Double(rawNote.duration / compassTimeInSeconds)
         let duration = pow(round(log2(rawDuration), 2)
 
-        let type = NoteType.init(rawValue: duration)
-        var note: Note
+        let type = NoteDuration.init(rawValue: duration)
+        //var note: Note
 
         // if the note pitch is -1, creates a silence
         if rawNote.pitch == -1 {
@@ -149,4 +149,4 @@ class Song {
             } while (!lastCompass.insertNote(note: note))
         }
     }
-}
+}*/

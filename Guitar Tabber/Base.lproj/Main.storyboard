@@ -6,11 +6,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Tuner-->
         <scene sceneID="bDA-oA-Lu0">
             <objects>
                 <navigationController id="uuQ-sf-UtN" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="a2X-3P-U3t"/>
+                    <tabBarItem key="tabBarItem" title="Tuner" image="rsz_turner" id="a2X-3P-U3t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7La-9a-pok">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-70" y="-972"/>
         </scene>
-        <!--Recorder-->
+        <!--Tuner-->
         <scene sceneID="CKb-YG-0dZ">
             <objects>
                 <viewController id="R7R-wK-DAP" customClass="ViewController" customModule="Guitar_Tabber" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,48 +35,83 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZG-oG-4yI">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4QL-Ya-Sys">
                                 <frame key="frameInset" minY="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NZK-HF-asy">
-                                <frame key="frameInset" minX="67" minY="250" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbO-aj-MOV">
-                                <frame key="frameInset" minX="313" minY="559" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Stop"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRz-Hg-GV4">
-                                <frame key="frameInset" minX="16" minY="559" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-hx-Lj8">
-                                <frame key="frameInset" minX="166" minY="563" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-hx-Lj8">
+                                        <frame key="frameInset" minX="8" minY="305" width="359" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRz-Hg-GV4">
+                                        <frame key="frameInset" minX="53" minY="470" width="71" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startButton:" destination="R7R-wK-DAP" eventType="touchUpInside" id="QUU-18-SpR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbO-aj-MOV">
+                                        <frame key="frameInset" minX="265" minY="470" width="63" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stopButton:" destination="R7R-wK-DAP" eventType="touchUpInside" id="Tbq-ye-CJ4"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Recorder" translatesAutoresizingMaskIntoConstraints="NO" id="l5n-pT-07l">
+                                        <frame key="frameInset" minX="67" minY="84" width="240" height="178"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16151959969999999" green="1" blue="0.78346570049999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Cns-sX-EQR"/>
-                    <navigationItem key="navigationItem" title="Recorder" id="R2p-Qh-Yrn">
+                    <tabBarItem key="tabBarItem" title="Tuner" image="rsz_turner" id="Cns-sX-EQR"/>
+                    <navigationItem key="navigationItem" title="Tuner" id="R2p-Qh-Yrn">
                         <barButtonItem key="backBarButtonItem" title="Back" id="rXL-PI-M4P"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="noteLabel" destination="5lG-hx-Lj8" id="k4g-QO-HJb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLL-B2-q1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893.60000000000002" y="-973.76311844077964"/>
+            <point key="canvasLocation" x="948" y="-973.76311844077964"/>
         </scene>
-        <!--Item-->
+        <!--Recorder-->
+        <scene sceneID="BOi-jI-5FH">
+            <objects>
+                <navigationController id="TuW-dQ-21h" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recorder" image="recorder1" id="DXa-Jh-hdk"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LAr-Tn-okP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5wB-sv-Ua1" kind="relationship" relationship="rootViewController" id="fRj-Ds-VZh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yor-ai-wIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-487" y="598"/>
+        </scene>
+        <!--Record-->
         <scene sceneID="WFf-1b-4mc">
             <objects>
                 <navigationController id="Vbj-Ko-Nk2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0v8-ui-zB3"/>
+                    <tabBarItem key="tabBarItem" title="Record" image="songlogo" id="0v8-ui-zB3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Omu-v7-Wmc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -89,53 +124,53 @@
             </objects>
             <point key="canvasLocation" x="-71" y="-110"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="i8q-J4-pMs">
+        <!--Recorder-->
+        <scene sceneID="eTi-Xx-h16">
             <objects>
-                <navigationController id="7A5-1y-U6W" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="S5L-eW-Nqu"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tdF-6H-fDq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3vc-EB-NVl" kind="show" id="p98-pI-2TN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LNA-dy-CMr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-71" y="611"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="0pH-mP-Tgo">
-            <objects>
-                <viewController id="3vc-EB-NVl" sceneMemberID="viewController">
+                <viewController id="5wB-sv-Ua1" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Vm2-RH-Kh6"/>
-                        <viewControllerLayoutGuide type="bottom" id="1D8-0J-e4T"/>
+                        <viewControllerLayoutGuide type="top" id="4LG-L0-pcN"/>
+                        <viewControllerLayoutGuide type="bottom" id="dzN-9W-L8U"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="BSF-cb-fbh">
+                    <view key="view" contentMode="scaleToFill" id="cnn-pT-U6V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dVX-pj-At5">
-                                <frame key="frameInset" minX="67" minY="177" width="240" height="128"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-DS-l8y">
+                                <frame key="frameInset" minY="64" width="375" height="554"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSn-Hw-AAC">
-                                <frame key="frameInset" minX="67" minY="386" width="240" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Recorder" translatesAutoresizingMaskIntoConstraints="NO" id="hff-tM-GO6">
+                                        <frame key="frameInset" minX="67" minY="121" width="240" height="181"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywc-qk-afu">
+                                        <frame key="frameInset" minX="49" minY="477" width="82" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="Start">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtd-PR-3mi">
+                                        <frame key="frameInset" minX="257" minY="474" width="76" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.20354736049087629" blue="0.26039549124415251" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Recorder" id="nUa-uO-hvz"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jVK-c7-RKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SjK-Rq-ao0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911.20000000000005" y="627.4362818590705"/>
+            <point key="canvasLocation" x="856.79999999999995" y="597.75112443778119"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ank-aB-2Ly">
@@ -152,20 +187,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="sU4-VG-YNk">
                         <barButtonItem key="backBarButtonItem" title="Back" id="naE-9T-1ib"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="GC8-Gr-hD2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tby-hK-FXn">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UKf-t4-9qv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1647" y="-110"/>
         </scene>
-        <!--Table-->
+        <!--Song-->
         <scene sceneID="Mjr-v9-C7M">
             <objects>
                 <tableViewController id="DtH-wH-2Wg" customClass="TableViewController" customModule="Guitar_Tabber" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="107" id="dbo-nB-xc2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" rowHeight="107" id="dbo-nB-xc2" customClass="TableViewCell" customModule="Guitar_Tabber" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbo-nB-xc2" id="TBV-FV-tJU">
@@ -182,25 +210,32 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-yK-SMh">
-                                            <frame key="frameInset" minX="125" minY="43" width="42" height="21"/>
+                                            <frame key="frameInset" minX="125" minY="19" width="209" height="79"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="ahD-Wd-Kws">
+                                            <frame key="frameInset" minX="12" minY="19" width="91" height="69"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="playImage" destination="ahD-Wd-Kws" id="MZV-rP-osb"/>
+                                    <outlet property="songName" destination="yWf-yK-SMh" id="qIZ-Hi-riE"/>
                                     <segue destination="rpS-l2-3Za" kind="push" id="hps-OB-JN6"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="DtH-wH-2Wg" id="UsS-Bk-kIX"/>
                             <outlet property="delegate" destination="DtH-wH-2Wg" id="FUp-vB-bsI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Table" id="dNk-l8-lFu">
+                    <navigationItem key="navigationItem" title="Song" id="dNk-l8-lFu">
                         <barButtonItem key="backBarButtonItem" title="Back" id="kOP-Qt-qE8"/>
                     </navigationItem>
                 </tableViewController>
@@ -220,7 +255,7 @@
                     <connections>
                         <segue destination="uuQ-sf-UtN" kind="relationship" relationship="viewControllers" id="lxa-ZI-zaF"/>
                         <segue destination="Vbj-Ko-Nk2" kind="relationship" relationship="viewControllers" id="LTP-nt-FOe"/>
-                        <segue destination="7A5-1y-U6W" kind="relationship" relationship="viewControllers" id="0XM-6L-8nF"/>
+                        <segue destination="TuW-dQ-21h" kind="relationship" relationship="viewControllers" id="ZY8-WO-PrS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4c-jC-O41" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -228,4 +263,11 @@
             <point key="canvasLocation" x="-1118" y="-304"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Recorder" width="232" height="174"/>
+        <image name="play" width="70" height="50"/>
+        <image name="recorder1" width="69" height="50"/>
+        <image name="rsz_turner" width="50" height="36"/>
+        <image name="songlogo" width="69" height="50"/>
+    </resources>
 </document>

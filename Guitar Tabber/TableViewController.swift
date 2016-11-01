@@ -14,11 +14,25 @@ class TableViewController: UITableViewController {
 
 
 
-    let dyItem = ["a","b","c"]
+    var dyItem = [songPage]()
+    
+    func loadSampleSongs() {
+        let photo1 = UIImage(named: "play")!
+        let song1 = songPage(name: "song 1", photo: photo1)!
+        
+        let photo2 = UIImage(named: "play")!
+        let song2 = songPage(name: "song 2", photo: photo2)!
+        
+        let photo3 = UIImage(named: "play")!
+        let song3 = songPage(name: "song 3", photo: photo3)!
+        
+        dyItem += [song1, song2, song3]
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadSampleSongs()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -47,11 +61,13 @@ class TableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text=dyItem[indexPath.row]
-       // testLabel.text=dyItem[indexPath.row]
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! TableViewCell
+        
 
+        let song = dyItem[indexPath.row]
+        
+        cell.songName.text = song.name
+        cell.playImage.image = song.photo
         return cell
     }
     
