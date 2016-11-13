@@ -1,12 +1,11 @@
 import Foundation
 
-class RawNote {
-    public private(set) var pitch: Int
-    public private(set) var octave: Int
-    public private(set) var distances: Float
+public class RawNote {
+    public internal(set) var pitch: Int
+    public internal(set) var octave: Int
     
-    private var startTime: Double
-    private var endTime: Double
+    internal var startTime: Double
+    internal var endTime: Double
     
     public var duration: Float {
         get {
@@ -16,9 +15,8 @@ class RawNote {
 
     public let notes = ["C", "C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
 
-    init(pitch p: String, octave o: Int, distance dis: Float) {
+    init(pitch p: String, octave o: Int) {
         octave = o
-        distances = dis
         startTime = NSTimeIntervalSince1970
         endTime = startTime
         switch p {

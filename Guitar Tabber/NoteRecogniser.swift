@@ -21,7 +21,6 @@ class NoteRecogniser: TunerDelegate {
         let pitch = output.pitch
         let octave = output.octave
         let amplitude = output.amplitude
-        let distance = output.distance
 
         // If the upper threshold is surpassed, finishes the last note and create a new one
         if amplitude > upperThreshold {
@@ -29,7 +28,7 @@ class NoteRecogniser: TunerDelegate {
                 note.finish()
                 song.insertRawNote(noteToInsert: note)
             }
-            currentNote = RawNote(pitch: pitch, octave: octave, distance: distance)
+            currentNote = RawNote(pitch: pitch, octave: octave)
         }
 
         // If the lower threshold is surpassed, finishes the current note and create a new silence
@@ -38,7 +37,7 @@ class NoteRecogniser: TunerDelegate {
                 note.finish()
                 song.insertRawNote(noteToInsert: note)
             }
-            currentNote = RawNote(pitch: "", octave: 0, distance: 0)
+            currentNote = RawNote(pitch: "", octave: 0)
         }
     }
 
@@ -47,5 +46,9 @@ class NoteRecogniser: TunerDelegate {
         let tuner = Tuner()
         tuner.delegate = self
         tuner.start()
+    }
+    
+    public func getSong() -> Song {
+        return song;
     }
 }

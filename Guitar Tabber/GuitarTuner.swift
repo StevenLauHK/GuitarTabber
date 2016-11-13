@@ -16,8 +16,6 @@ class GuitarTuner: TunerDelegate {
     private var octave: Int
     public private(set) var distance: Float
 
-    
-
     public var note: String { get { return pitch + String(octave) } }
 
     init() {

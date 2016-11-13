@@ -9,25 +9,28 @@
 import Foundation
 import Darwin
 
-enum NoteDuration: Int {
-    case semibreve = 1, minim = 2, crotchet = 4, quaver = 8, semiquaver = 16, demisemiquaver = 32, hemidemisemiquaver = 64
+public enum NoteDuration: Int {
+    case whole = 1, half = 2, quarter = 4, eighth = 8, sixteenth = 16, thirtysecond = 32, sixtyforth = 64
     
     public func getDuration() -> Float {
         return 1.0 / Float(rawValue)
     }
 }
-
-class Note {
+    
+public class Note {
     public var noteDuration: NoteDuration
     public var dotted: Bool
     public var time: Float {
         get {
-            return noteDuration.getDuration() * 1.5
+            if dotted {
+                return noteDuration.getDuration() * 1.5
+            } else {
+                return noteDuration.getDuration()
+            }
         }
         set(value){
-            noteDuration = NoteDuration.init(rawValue: Int(value))!
+            noteDuration = NoteDuration.init(rawValue: Int(1.0 / value))!
         }
-        
     }
     public private(set) var pitch: Int
     public private(set) var octave: Int
@@ -54,8 +57,8 @@ class Note {
     }
 }
 
-class Compass {
-    public private(set)var notes: [Note] = []
+public class Compass {
+    public internal(set)var notes: [Note] = []
     public var timeSignature: (Int, Int)
     public var tempo: Int
     
@@ -96,7 +99,7 @@ class Compass {
     public func insertPartial(note: Note) -> Note {
         if remainingTime() <= 0 { return note }
         
-        let newNote = Note(noteDuration: NoteDuration(rawValue: Int(note.time - remainingTime()))!, pitch: note.pitch, octave: note.octave,isLigated: true)
+        let newNote = Note(noteDuration: NoteDuration(rawValue: Int(1.0 / (note.time - remainingTime())))!, pitch: note.pitch, octave: note.octave,isLigated: true)
         note.time = remainingTime()
         notes.append(note)
         
@@ -104,8 +107,8 @@ class Compass {
     }
 }
 
-class Song {
-    private var compasses: [Compass] = []
+public class Song {
+    internal var compasses: [Compass] = []
 
     public private(set)var tempo: Int
     public private(set)var timeSignature: (Int, Int)
@@ -126,7 +129,7 @@ class Song {
     // Inserts a raw note (from the micriphone) into the compass
     public func insertRawNote(noteToInsert rawNote: RawNote) {
         // Gets the raw note and aproximates the real duration to a theorical one
-        let rawDuration: Double = Double(rawNote.duration / compassTimeInSeconds)
+        let rawDuration: Double = Double(rawNote.duration / compassTimeInSeconds * Float(timeSignature.1) / Float(timeSignature.0))
         let duration = Int(pow(round(log2(rawDuration)), 2))
 
         let type = NoteDuration.init(rawValue: duration)!
