@@ -10,6 +10,31 @@ import UIKit
 
 class RecorderController: ViewController {
 
+    var song: Song?
+    var recogniser: NoteRecogniser?
+    
+    var recording = false
+    
+    var tempo = 120
+    var timeSignature = (4, 4)
+
+    
+    @IBAction func startPressed(_ sender: Any) {
+        if !recording {
+            recording = true
+            song = Song(tempo: tempo, timeSignature: timeSignature)
+            recogniser = NoteRecogniser(song: song!)
+        }
+    }
+    
+    @IBAction func stopPressed(_ sender: Any) {
+        if recording {
+            song = recogniser?.getSong()
+            recogniser = nil
+        }
+        // Go to see the tab
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
