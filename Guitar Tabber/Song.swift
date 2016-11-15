@@ -116,7 +116,8 @@ public class Song {
     // Returns the lenght of the a song compass in seconds
     public var compassTimeInSeconds: Float {
         get {
-            return 60.0 / Float(tempo) * NoteDuration.init(rawValue: timeSignature.1)!.getDuration()
+            return 60.0 / Float(tempo) * Float(timeSignature.1)
+            //NoteDuration.init(rawValue: timeSignature.1)!.getDuration()
         }
     }
     
@@ -129,8 +130,8 @@ public class Song {
     // Inserts a raw note (from the micriphone) into the compass
     public func insertRawNote(noteToInsert rawNote: RawNote) {
         // Gets the raw note and aproximates the real duration to a theorical one
-        let rawDuration: Double = Double(rawNote.duration / compassTimeInSeconds * Float(timeSignature.1) / Float(timeSignature.0))
-        let duration = Int(pow(round(log2(rawDuration)), 2))
+        let rawDuration: Double = Double(compassTimeInSeconds / rawNote.duration * Float(timeSignature.1) / Float(timeSignature.0))
+        let duration = Int(pow(2, round(log2(rawDuration))))
 
         let type = NoteDuration.init(rawValue: duration)!
         var note: Note

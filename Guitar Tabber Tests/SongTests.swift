@@ -132,18 +132,113 @@ class SongTests: XCTestCase {
         let compassDuration = 60.0 / Float(tempo) * Float(timeSignature.1)
         let wholeDuration: Float = compassDuration * (Float(timeSignature.1) / Float(timeSignature.0))
 
-        var rawNote = RawNote(pitch: "C", octave: 3)
+        let rawNote = RawNote(pitch: "C", octave: 3)
         rawNote.finish()
         rawNote.startTime = 0.0
         rawNote.endTime = Double(wholeDuration) / 4.0
         
         song.insertRawNote(noteToInsert: rawNote)
         
-        var lastCompass = song.compasses[song.compasses.endIndex - 1]
+        let lastCompass = song.compasses[song.compasses.endIndex - 1]
         let insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
         assert(insertedNote.noteDuration == NoteDuration.quarter)
         assert(insertedNote.pitch == rawNote.pitch)
         assert(insertedNote.dotted == false)
         assert(insertedNote.octave == rawNote.octave)
+    }
+    
+    func testSimpleRawNoteWithErrorInsertion() {
+        let tempo: Int = 120
+        let timeSignature = (4, 4)
+        let song = Song(tempo: tempo, timeSignature: timeSignature)
+        let compassDuration = 60.0 / Float(tempo) * Float(timeSignature.1)
+        let wholeDuration: Float = compassDuration * (Float(timeSignature.1) / Float(timeSignature.0))
+        
+        let rawNote = RawNote(pitch: "C", octave: 3)
+        rawNote.finish()
+        rawNote.startTime = 0.0
+        rawNote.endTime = Double(wholeDuration) / 4.0 * 1.12
+        
+        song.insertRawNote(noteToInsert: rawNote)
+        
+        var lastCompass = song.compasses[song.compasses.endIndex - 1]
+        var insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
+        assert(insertedNote.noteDuration == NoteDuration.quarter)
+        assert(insertedNote.pitch == rawNote.pitch)
+        assert(insertedNote.dotted == false)
+        assert(insertedNote.octave == rawNote.octave)
+        
+        rawNote.startTime = 0.0
+        rawNote.endTime = Double(wholeDuration) / 4.0 * 0.9
+        
+        song.insertRawNote(noteToInsert: rawNote)
+        
+        lastCompass = song.compasses[song.compasses.endIndex - 1]
+        insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
+        assert(insertedNote.noteDuration == NoteDuration.quarter)
+        assert(insertedNote.pitch == rawNote.pitch)
+        assert(insertedNote.dotted == false)
+        assert(insertedNote.octave == rawNote.octave)
+        
+        rawNote.startTime = 0.0
+        rawNote.endTime = Double(wholeDuration) / 8.0 * 0.8
+        
+        song.insertRawNote(noteToInsert: rawNote)
+        
+        lastCompass = song.compasses[song.compasses.endIndex - 1]
+        insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
+        assert(insertedNote.noteDuration == NoteDuration.eighth)
+        assert(insertedNote.pitch == rawNote.pitch)
+        assert(insertedNote.dotted == false)
+        assert(insertedNote.octave == rawNote.octave)
+    }
+    
+    func testMultipleCompassesInsertion() {
+        let tempo: Int = 120
+        let timeSignature = (4, 4)
+        let song = Song(tempo: tempo, timeSignature: timeSignature)
+        
+        let compassDuration = 60.0 / Float(tempo) * Float(timeSignature.1)
+        let wholeDuration: Float = compassDuration * (Float(timeSignature.1) / Float(timeSignature.0))
+        
+        let rawNote = RawNote(pitch: "C", octave: 3)
+        rawNote.finish()
+        rawNote.startTime = 0
+        rawNote.endTime = Double(wholeDuration) / 8.0
+        
+        var lastCompass: Compass = song.compasses[song.compasses.endIndex - 1]
+        
+        for _ in 0...3 {
+            song.insertRawNote(noteToInsert: rawNote)
+            lastCompass = song.compasses[song.compasses.endIndex - 1]
+            let insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
+            assert(insertedNote.noteDuration == NoteDuration.eighth)
+        }
+        
+        assert(lastCompass.remainingTime() == NoteDuration.half.getDuration())
+        rawNote.endTime = Double(wholeDuration) / 4.0
+        
+        
+        for _ in 0...1 {
+            song.insertRawNote(noteToInsert: rawNote)
+            lastCompass = song.compasses[song.compasses.endIndex - 1]
+            let insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
+            assert(insertedNote.noteDuration == NoteDuration.quarter)
+        }
+        
+        assert(lastCompass.remainingTime() == 0)
+        
+        song.insertRawNote(noteToInsert: rawNote)
+        lastCompass = song.compasses[song.compasses.endIndex - 1]
+        var insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
+        assert(insertedNote.noteDuration == NoteDuration.quarter)
+        
+        song.insertRawNote(noteToInsert: rawNote)
+        lastCompass = song.compasses[song.compasses.endIndex - 1]
+        insertedNote = lastCompass.notes[lastCompass.notes.endIndex - 1]
+        assert(insertedNote.noteDuration == NoteDuration.quarter)
+        
+        assert(lastCompass.remainingTime() == NoteDuration.half.getDuration())
+        assert(song.compasses.count == 2)
     }
 }
