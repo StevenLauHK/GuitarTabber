@@ -8,6 +8,7 @@
 import AudioKit
 import TuningFork
 import UIKit
+import SFGaugeView
 
 class ViewController: UIViewController, TunerDelegate {
     public var tuner: Tuner = Tuner()
@@ -16,9 +17,8 @@ class ViewController: UIViewController, TunerDelegate {
     public private(set) var distance: Float = 0.0
     
     private let amplitudeThreshold: Float = 0.009
-
-    @IBOutlet var distanceLabel: UILabel!
-    @IBOutlet var amplitudeLabel: UILabel!
+    
+    @IBOutlet var saugeView: SFGaugeView!
     
     @IBAction func startButton(_ sender: AnyObject) {
         tuner.start()
@@ -27,6 +27,7 @@ class ViewController: UIViewController, TunerDelegate {
     @IBAction func stopButton(_ sender: AnyObject) {
         tuner.stop()
         noteLabel.text = "--"
+        saugeView.currentLevel = 50
     }
     
     @IBOutlet var noteLabel: UILabel!
@@ -36,7 +37,6 @@ class ViewController: UIViewController, TunerDelegate {
     internal func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
         pitch = output.pitch
         octave = output.octave
-        distance = output.distance
         
         let amplitude = output.amplitude
         let frequency = output.frequency
@@ -44,24 +44,39 @@ class ViewController: UIViewController, TunerDelegate {
         if amplitude > amplitudeThreshold {
             let display = output.pitch + String(output.octave)
             noteLabel.text = display
+            let a: Float = pow(2.0, (1.0 / 12.0))
+            
+            if output.distance < 0 {
+                distance = output.distance / (output.frequency - output.frequency / a)
+            } else {
+                distance = output.distance / (output.frequency * a - output.frequency)
+            }
+            distance += 0.5
+            distance *= 100
         } else {
             let display = "--"
             noteLabel.text = display
+            distance = 50
         }
         
-        print(output.pitch, output.octave, amplitude, frequency)
+        saugeView.currentLevel = Int(distance)
+        
+        print(output.pitch, output.octave, amplitude, frequency, distance)
     }
 
-    func setupPlot() {
-        let mic = tuner.getMicrophone()
-        let plot = AKAudioFFTPlot()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tuner.delegate = self
         noteLabel.text = "--"
+        
+        saugeView.maxlevel = 100
+        saugeView.minlevel = 0
+        saugeView.hideLevel = true
+        
+        saugeView.bgColor = UIColor.black
+        
+        saugeView.backgroundColor = UIColor.clear
     }
 
     override func didReceiveMemoryWarning() {

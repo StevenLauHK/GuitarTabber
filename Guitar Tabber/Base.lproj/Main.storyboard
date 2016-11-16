@@ -71,24 +71,11 @@
                                             <action selector="stopButton:" destination="R7R-wK-DAP" eventType="touchUpInside" id="Tbq-ye-CJ4"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Recorder" translatesAutoresizingMaskIntoConstraints="NO" id="l5n-pT-07l">
-                                        <rect key="frame" x="67" y="84" width="240" height="178"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r0F-39-iIw" customClass="SFGaugeView">
+                                        <rect key="frame" x="67" y="56" width="240" height="198"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7l-Od-ovW">
-                                        <rect key="frame" x="8" y="362" width="359" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYd-cI-scl">
-                                        <rect key="frame" x="8" y="391" width="359" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.16151959969999999" green="1" blue="0.78346570049999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -100,9 +87,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="rXL-PI-M4P"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="amplitudeLabel" destination="hYd-cI-scl" id="e43-NE-xMs"/>
-                        <outlet property="distanceLabel" destination="W7l-Od-ovW" id="ja7-RP-Dpu"/>
                         <outlet property="noteLabel" destination="5lG-hx-Lj8" id="k4g-QO-HJb"/>
+                        <outlet property="saugeView" destination="r0F-39-iIw" id="ZrL-Mg-b8m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLL-B2-q1f" userLabel="First Responder" sceneMemberID="firstResponder"/>

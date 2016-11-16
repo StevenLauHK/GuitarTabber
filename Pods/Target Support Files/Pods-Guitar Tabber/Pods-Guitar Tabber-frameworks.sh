@@ -86,10 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AudioKit/AudioKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Chronos-Swift/Chronos.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SFGaugeView/SFGaugeView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TuningFork/TuningFork.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AudioKit/AudioKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Chronos-Swift/Chronos.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SFGaugeView/SFGaugeView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/TuningFork/TuningFork.framework"
 fi

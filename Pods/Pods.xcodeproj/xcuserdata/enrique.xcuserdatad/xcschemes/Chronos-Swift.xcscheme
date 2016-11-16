@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5EECCD049B5A1BBC2B4117857B86C637"
+               BlueprintIdentifier = "DC37879F88BE8F5A061CE589076B86B8"
                BuildableName = "Chronos.framework"
                BlueprintName = "Chronos-Swift"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5EECCD049B5A1BBC2B4117857B86C637"
+            BlueprintIdentifier = "DC37879F88BE8F5A061CE589076B86B8"
             BuildableName = "Chronos.framework"
             BlueprintName = "Chronos-Swift"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5EECCD049B5A1BBC2B4117857B86C637"
-            BuildableName = "Chronos.framework"
-            BlueprintName = "Chronos-Swift"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

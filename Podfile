@@ -4,6 +4,8 @@ platform :ios, '9.0'
 target 'Guitar Tabber' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   pod 'TuningFork'
+  pod 'SFGaugeView'
+  
   use_frameworks!
 
   # Pods for Guitar Tabber

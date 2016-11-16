@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Guitar Tabber/ViewController.swift"
-            timestampString = "500529129.654669"
+            timestampString = "500916796.316306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "tunerDidUpdate(_:output:)"
             landmarkType = "7">
          </BreakpointContent>
