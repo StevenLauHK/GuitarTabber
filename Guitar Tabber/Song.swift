@@ -53,6 +53,7 @@ public class Note {
             return (1, s1)
         }
     }
+    
     public private(set) var pitch: Int
     public private(set) var octave: Int
     

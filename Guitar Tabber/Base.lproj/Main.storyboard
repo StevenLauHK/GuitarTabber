@@ -129,57 +129,6 @@
             </objects>
             <point key="canvasLocation" x="-71" y="-110"/>
         </scene>
-        <!--Recorder-->
-        <scene sceneID="eTi-Xx-h16">
-            <objects>
-                <viewController id="5wB-sv-Ua1" customClass="RecorderController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4LG-L0-pcN"/>
-                        <viewControllerLayoutGuide type="bottom" id="dzN-9W-L8U"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cnn-pT-U6V">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-DS-l8y">
-                                <rect key="frame" x="0.0" y="28" width="375" height="582"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Recorder" translatesAutoresizingMaskIntoConstraints="NO" id="hff-tM-GO6">
-                                        <rect key="frame" x="67" y="121" width="240" height="181"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywc-qk-afu">
-                                        <rect key="frame" x="49" y="477" width="82" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="startPressed:" destination="5wB-sv-Ua1" eventType="touchUpInside" id="XbE-16-pt4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtd-PR-3mi">
-                                        <rect key="frame" x="257" y="474" width="76" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <state key="normal" title="Stop">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="0.20354736049087629" blue="0.26039549124415251" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Recorder" id="nUa-uO-hvz"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SjK-Rq-ao0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="780" y="597.75112443778119"/>
-        </scene>
         <!--Recorder Controller-->
         <scene sceneID="36l-6s-qVt">
             <objects>
@@ -225,7 +174,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EjI-Rp-FlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="238" y="1359"/>
+            <point key="canvasLocation" x="679" y="598"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ank-aB-2Ly">
