@@ -33,6 +33,14 @@ class SongTests: XCTestCase {
         assert(note.noteDuration == NoteDuration.quarter)
     }
     
+    func testTabConversion() {
+        var note = Note(noteDuration: NoteDuration.quarter, pitch: 7, octave: 2)
+        assert(note.inGuitar == (6, 3))
+        
+        note = Note(noteDuration: NoteDuration.quarter, pitch: 0, octave: 3)
+        assert(note.inGuitar == (5, 3))
+    }
+    
     func testSimpleNoteInsertion() {
         let compass = Compass(signature: (4, 4), tempo: 120)
         var remaining = NoteDuration.whole.getDuration()

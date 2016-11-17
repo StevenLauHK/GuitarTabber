@@ -32,8 +32,30 @@ public class Note {
             noteDuration = NoteDuration.init(rawValue: Int(1.0 / value))!
         }
     }
+    public var inGuitar: (Int, Int) {
+        get {
+            let s6 = pitch + 12 * octave - (4 + 2 * 12)
+            if s6 < 7 { return (6, s6) }
+            
+            let s5 = s6 - 5
+            if s5 < 7 { return (5, s5) }
+            
+            let s4 = s5 - 5
+            if s4 < 12 { return (4, s4) }
+            
+            let s3 = s4 - 5
+            if s3 < 12 { return (3, s3) }
+            
+            let s2 = s3 - 4
+            if s2 < 12 { return (2, s2) }
+            
+            let s1 = s2 - 5
+            return (1, s1)
+        }
+    }
     public private(set) var pitch: Int
     public private(set) var octave: Int
+    
     
     public private(set) var ligated: Bool
     
