@@ -105,7 +105,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="5wB-sv-Ua1" kind="relationship" relationship="rootViewController" id="fRj-Ds-VZh"/>
+                        <segue destination="Psy-Hb-llf" kind="relationship" relationship="rootViewController" id="aeb-9X-Jf4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yor-ai-wIt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWK-DS-l8y">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="582"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Recorder" translatesAutoresizingMaskIntoConstraints="NO" id="hff-tM-GO6">
@@ -157,7 +157,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="startPressed:" destination="5wB-sv-Ua1" eventType="touchUpInside" id="VKu-bb-vaN"/>
+                                            <action selector="startPressed:" destination="5wB-sv-Ua1" eventType="touchUpInside" id="XbE-16-pt4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtd-PR-3mi">
@@ -167,9 +167,6 @@
                                         <state key="normal" title="Stop">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="stopPressed:" destination="5wB-sv-Ua1" eventType="touchUpInside" id="gcj-Xp-OfQ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.20354736049087629" blue="0.26039549124415251" alpha="1" colorSpace="calibratedRGB"/>
@@ -181,7 +178,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SjK-Rq-ao0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856.79999999999995" y="597.75112443778119"/>
+            <point key="canvasLocation" x="780" y="597.75112443778119"/>
+        </scene>
+        <!--Recorder Controller-->
+        <scene sceneID="36l-6s-qVt">
+            <objects>
+                <viewController id="Psy-Hb-llf" customClass="RecorderController" customModule="Guitar_Tabber" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2zZ-1Y-El5"/>
+                        <viewControllerLayoutGuide type="bottom" id="XUI-Uk-O8t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4bo-st-NT4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neC-1k-jt8">
+                                <rect key="frame" x="45" y="514" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="Psy-Hb-llf" eventType="touchUpInside" id="5LK-27-kOp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0n3-4b-QSe">
+                                <rect key="frame" x="253" y="511" width="76" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stop:" destination="Psy-Hb-llf" eventType="touchUpInside" id="58J-ns-Fr5"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Recorder" translatesAutoresizingMaskIntoConstraints="NO" id="04G-nv-DEc">
+                                <rect key="frame" x="67" y="136" width="240" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.37116888165473938" blue="0.41755694150924683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NDh-vM-1rd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EjI-Rp-FlG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="238" y="1359"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ank-aB-2Ly">
@@ -217,7 +261,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbo-nB-xc2" id="TBV-FV-tJU">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="106"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="106.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWf-yK-SMh">

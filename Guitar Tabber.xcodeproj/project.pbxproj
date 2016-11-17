@@ -33,6 +33,13 @@
 			remoteGlobalIDString = 4919B23E1DA795C200CF9978;
 			remoteInfo = "Guitar Tabber";
 		};
+		CD7960101DDC61FE00D4D109 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4919B2371DA795C200CF9978 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4919B23E1DA795C200CF9978;
+			remoteInfo = "Guitar Tabber";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +215,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CD7960111DDC61FE00D4D109 /* PBXTargetDependency */,
 			);
 			name = "Guitar TabberTests";
 			productName = "Guitar TabberTests";
@@ -226,7 +234,7 @@
 				TargetAttributes = {
 					4919B23E1DA795C200CF9978 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 86E9X4G324;
+						DevelopmentTeam = X7N3E43UP8;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -237,6 +245,7 @@
 					};
 					CD0370981DD5E946003585C4 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = X7N3E43UP8;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4919B23E1DA795C200CF9978;
 					};
@@ -379,6 +388,11 @@
 			target = 4919B23E1DA795C200CF9978 /* Guitar Tabber */;
 			targetProxy = CD03708A1DD56F60003585C4 /* PBXContainerItemProxy */;
 		};
+		CD7960111DDC61FE00D4D109 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4919B23E1DA795C200CF9978 /* Guitar Tabber */;
+			targetProxy = CD7960101DDC61FE00D4D109 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -497,12 +511,13 @@
 			baseConfigurationReference = C5CAB7FD703F868DB1E2C7C4 /* Pods-Guitar Tabber.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 86E9X4G324;
+				DEVELOPMENT_TEAM = X7N3E43UP8;
 				INFOPLIST_FILE = "Guitar Tabber/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.ee4304.Guitar-Tabber";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -511,12 +526,13 @@
 			baseConfigurationReference = EBB76213AB1C3921D506AF08 /* Pods-Guitar Tabber.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 86E9X4G324;
+				DEVELOPMENT_TEAM = X7N3E43UP8;
 				INFOPLIST_FILE = "Guitar Tabber/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "hk.ee4304.Guitar-Tabber";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -551,7 +567,9 @@
 		CD0370A11DD5E946003585C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X7N3E43UP8;
 				INFOPLIST_FILE = "Guitar TabberTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -565,7 +583,9 @@
 		CD0370A21DD5E946003585C4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = X7N3E43UP8;
 				INFOPLIST_FILE = "Guitar TabberTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

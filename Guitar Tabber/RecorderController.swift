@@ -8,29 +8,35 @@
 
 import UIKit
 
-class RecorderController: ViewController {
+class RecorderController: UIViewController {
 
     var song: Song?
     var recogniser: NoteRecogniser?
     
     var recording = false
-    
-    var tempo = 120
-    var timeSignature = (4, 4)
 
+    var tempo = 95
+    var timeSignature = (4, 4)
     
-    @IBAction func startPressed(_ sender: Any) {
+    
+    @IBAction func start(_ sender: Any) {
         if !recording {
+            print("Recording started")
+
             recording = true
             song = Song(tempo: tempo, timeSignature: timeSignature)
             recogniser = NoteRecogniser(song: song!)
         }
+
     }
-    
-    @IBAction func stopPressed(_ sender: Any) {
+
+    @IBAction func stop(_ sender: Any) {
         if recording {
             song = recogniser?.getSong()
+            print(song ?? "Couldnt get the song")
             recogniser = nil
+            print("Recording end")
+            recording = false
         }
         // Go to see the tab
     }
@@ -45,16 +51,4 @@ class RecorderController: ViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

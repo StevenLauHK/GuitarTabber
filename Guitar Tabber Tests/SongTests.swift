@@ -119,10 +119,13 @@ class SongTests: XCTestCase {
         note = Note(noteDuration: NoteDuration.whole, pitch: 3, octave: 3)
         correct = compass.insertNote(note: note)
         assert(!correct)
-        let newNote = compass.insertPartial(note: note)
+        let newNotes = compass.insertPartial(note: note)
+        
+        
         assert(compass.remainingTime() == 0)
-        assert(newNote.time == NoteDuration.half.getDuration())
-        assert(newNote.ligated)
+
+        assert(newNotes[0].time == NoteDuration.half.getDuration())
+        assert(newNotes[0].ligated)
     }
     
     func testSimpleRawNoteInsertion() {
@@ -240,5 +243,7 @@ class SongTests: XCTestCase {
         
         assert(lastCompass.remainingTime() == NoteDuration.half.getDuration())
         assert(song.compasses.count == 2)
+        
+        print(song)
     }
 }

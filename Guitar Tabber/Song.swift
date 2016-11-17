@@ -10,7 +10,7 @@ import Foundation
 import Darwin
 
 public enum NoteDuration: Int {
-    case whole = 1, half = 2, quarter = 4, eighth = 8, sixteenth = 16, thirtysecond = 32, sixtyforth = 64
+    case whole = 1, half = 2, quarter = 4, eighth = 8, sixteenth = 16
     
     public func getDuration() -> Float {
         return 1.0 / Float(rawValue)
@@ -96,18 +96,37 @@ public class Compass {
     }
 
     // Splits the note to fit in the compass and returns the remaining
-    public func insertPartial(note: Note) -> Note {
-        if remainingTime() <= 0 { return note }
+    public func insertPartial(note: Note) -> [Note] {
+        if remainingTime() <= 0 { return [note] }
         
-        let newNote = Note(noteDuration: NoteDuration(rawValue: Int(1.0 / (note.time - remainingTime())))!, pitch: note.pitch, octave: note.octave,isLigated: true)
-        note.time = remainingTime()
-        notes.append(note)
+        var newNotes = [Note]()
         
-        return newNote
+        for dur in splitDurations(durations: note.time - remainingTime()) {
+            let newNote = Note(noteDuration: dur, pitch: note.pitch, octave: note.octave,isLigated: true)
+            newNotes.append(newNote)
+        }
+        
+        for dur in splitDurations(durations: remainingTime()) {
+            note.time = dur.getDuration()
+            notes.append(note)
+        }
+        return newNotes
+    }
+    
+    private func splitDurations(durations d: Float) -> [NoteDuration] {
+        var nds = [NoteDuration]()
+        var dur = d
+        for i in 0...4 {
+            while dur - (1.0 / pow(2, Float(i)) ) >= 0 {
+                dur -= (1.0 / pow(2, Float(i)))
+                nds.append(NoteDuration.init(rawValue: Int(pow(2, Float(i))))!)
+            }
+        }
+        return nds
     }
 }
 
-public class Song {
+public class Song: CustomStringConvertible {
     internal var compasses: [Compass] = []
 
     public private(set)var tempo: Int
@@ -121,6 +140,21 @@ public class Song {
         }
     }
     
+    public var description: String {
+        get {
+            var res: String = ""
+            res += "Tempo: \(tempo)\tSignature: \(timeSignature.0) \(timeSignature.1)\n"
+            for compass in compasses {
+                for note in compass.notes {
+                    res += "(\(note.pitch) \(note.octave) 1/\(note.noteDuration.rawValue))\t"
+                }
+                res += "\n"
+            }
+            
+            return res
+        }
+    }
+    
     init(tempo: Int, timeSignature: (Int, Int)) {
         self.tempo = tempo
         self.timeSignature = timeSignature
@@ -131,28 +165,36 @@ public class Song {
     public func insertRawNote(noteToInsert rawNote: RawNote) {
         // Gets the raw note and aproximates the real duration to a theorical one
         let rawDuration: Double = Double(compassTimeInSeconds / rawNote.duration * Float(timeSignature.1) / Float(timeSignature.0))
-        let duration = Int(pow(2, round(log2(rawDuration))))
+        var duration = Int(pow(2, round(log2(rawDuration))))
 
-        let type = NoteDuration.init(rawValue: duration)!
-        var note: Note
-
-        // if the note pitch is -1, creates a silence
-        if rawNote.pitch == -1 {
-            note = Note(silenceDuration: type)
-        } else {
-            note = Note(noteDuration: type, pitch: rawNote.pitch, octave: rawNote.octave)
+        if (duration <= 16) {
+            if duration == 0 { duration = 1 }
+            let type = NoteDuration.init(rawValue: duration)!
+            var note: Note
+            
+            // if the note pitch is -1, creates a silence
+            if rawNote.pitch == -1 {
+                note = Note(silenceDuration: type)
+            } else {
+                note = Note(noteDuration: type, pitch: rawNote.pitch, octave: rawNote.octave)
+            }
+            
+            insertNotes(severalNotes: [note])
         }
-
+    }
+    
+    public func insertNotes(severalNotes rnotes: [Note]) {
         var lastCompass = compasses[compasses.endIndex - 1]
         
         // Tries to insert the note in the last compass. If it does not fit, it creates new
         // compasses and tries to fit the note in them recursively
-        if !lastCompass.insertNote(note: note) {
-            repeat {
-                note = lastCompass.insertPartial(note: note)
+        for note in rnotes {
+            if !lastCompass.insertNote(note: note) {
+                let newNotes = lastCompass.insertPartial(note: note)
                 compasses.append(Compass(signature: timeSignature, tempo: tempo))
+                insertNotes(severalNotes: newNotes)
                 lastCompass = compasses[compasses.endIndex - 1]
-            } while (!lastCompass.insertNote(note: note))
+            }
         }
     }
 }
