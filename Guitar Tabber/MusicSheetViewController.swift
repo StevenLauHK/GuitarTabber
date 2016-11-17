@@ -52,38 +52,16 @@ class MusicSheetViewController: UIViewController {
     
     var labelArr = Array<UILabel>()
     
-    var data:[[Int]] = [
-        [6,26,26,36,16,26,6,6,
-         6,26,26,36,36,46,6,6,
-         6,26,26,36,16,26,6,6,
-         6,26,26,36,36,46,6,6,
-         5,15,15,25,15,15,25,5,
-         35,25,5,5,35,25,5,5,
-         6,26,26,36,16,26,6,6,
-         26,16,26,26,6,6,6,6,
-         6,16,26,26,16,26,26,6,
-         5,25,25,35,25,25,35,5,
-         6,6,136,6,136,6,136,6,
-         136,5,5,5,0,3,25,3],
-        [0,500,300,400,300,500,0,0,
-         0,500,300,400,0,200,0,0,
-         0,500,300,400,300,500,0,0,
-         0,500,300,400,0,200,0,0,
-         0,500,300,500,500,300,500,0,
-         600,500,0,0,900,800,0,0,
-         0,500,300,400,300,500,0,0,
-         900,700,700,500,0,0,0,0,
-         7,707,1007,707,707,1007,707,7,
-         0,1000,800,900,1000,800,900,0,
-         0,0,40400,0,30300,0,20200,0,
-         100,0,1,2,0,2,2,2]]
+    var data:[[Int]] = [[0],[0]]
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         drawSheet()
         nameAndBeat()
         setupTextField()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -352,20 +330,17 @@ class MusicSheetViewController: UIViewController {
         beat1.numberOfLines = 0
         beat1.center = CGPoint(x: 25, y: 100)
         beat1.textAlignment = .center
-        beat1.text = "4"
         beat1.font = UIFont.boldSystemFont(ofSize: 12)
         self.view.addSubview(beat1)
         
         beat2.numberOfLines = 0
         beat2.center = CGPoint(x: 25, y: 110)
         beat2.textAlignment = .center
-        beat2.text = "4"
         beat2.font = UIFont.boldSystemFont(ofSize: 12)
         self.view.addSubview(beat2)
         songName.numberOfLines = 0
         songName.center = CGPoint(x: UIScreen.main.bounds.width/2, y: 30)
         songName.textAlignment = .center
-        songName.text = "Folk Blues in E"
         songName.font = UIFont.boldSystemFont(ofSize: 25)
         self.view.addSubview(songName)
     }
@@ -446,6 +421,38 @@ class MusicSheetViewController: UIViewController {
             musicLineLayerArr[number].lineWidth = 0.0
             
         }
+        
+    }
+    func getData(){
+        data = [
+            [6,26,26,36,16,26,6,6,
+             6,26,26,36,36,46,6,6,
+             6,26,26,36,16,26,6,6,
+             6,26,26,36,36,46,6,6,
+             5,15,15,25,15,15,25,5,
+             35,25,5,5,35,25,5,5,
+             6,26,26,36,16,26,6,6,
+             26,16,26,26,6,6,6,6,
+             6,16,26,26,16,26,26,6,
+             5,25,25,35,25,25,35,5,
+             6,6,136,6,136,6,136,6,
+             136,5,5,5,0,3,25,3],
+            [0,500,300,400,300,500,0,0,
+             0,500,300,400,0,200,0,0,
+             0,500,300,400,300,500,0,0,
+             0,500,300,400,0,200,0,0,
+             0,500,300,500,500,300,500,0,
+             600,500,0,0,900,800,0,0,
+             0,500,300,400,300,500,0,0,
+             900,700,700,500,0,0,0,0,
+             7,707,1007,707,707,1007,707,7,
+             0,1000,800,900,1000,800,900,0,
+             0,0,40400,0,30300,0,20200,0,
+             100,0,1,2,0,2,2,2]]
+        
+        beat1.text = "4"
+        beat2.text = "4"
+        songName.text = "ABC"
         
     }
 
