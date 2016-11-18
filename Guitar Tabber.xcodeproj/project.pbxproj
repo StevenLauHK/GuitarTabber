@@ -20,6 +20,7 @@
 		49CE40361DAB9B36001E7425 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CE40351DAB9B36001E7425 /* TableViewCell.swift */; };
 		49FCDE091DBB91E400D70B6E /* NoteRecogniser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCDE071DBB91E400D70B6E /* NoteRecogniser.swift */; };
 		49FCDE0A1DBB91E400D70B6E /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCDE081DBB91E400D70B6E /* Song.swift */; };
+		CA1CE9291DDF534500F01B9E /* MusicInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1CE9281DDF534500F01B9E /* MusicInformationViewController.swift */; };
 		CA9A8BA81DDDB22D0024EFEA /* MusicSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9A8BA71DDDB22D0024EFEA /* MusicSheetViewController.swift */; };
 		CD0370881DD56F60003585C4 /* Guitar_Tabber_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0370871DD56F60003585C4 /* Guitar_Tabber_Tests.swift */; };
 		CD0370901DD56F8B003585C4 /* SongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD03708F1DD56F8B003585C4 /* SongTests.swift */; };
@@ -59,6 +60,7 @@
 		49FCDE071DBB91E400D70B6E /* NoteRecogniser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteRecogniser.swift; sourceTree = "<group>"; };
 		49FCDE081DBB91E400D70B6E /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		C5CAB7FD703F868DB1E2C7C4 /* Pods-Guitar Tabber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Guitar Tabber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Guitar Tabber/Pods-Guitar Tabber.debug.xcconfig"; sourceTree = "<group>"; };
+		CA1CE9281DDF534500F01B9E /* MusicInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicInformationViewController.swift; sourceTree = "<group>"; };
 		CA9A8BA71DDDB22D0024EFEA /* MusicSheetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicSheetViewController.swift; sourceTree = "<group>"; };
 		CD0370851DD56F60003585C4 /* Guitar Tabber Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Guitar Tabber Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0370871DD56F60003585C4 /* Guitar_Tabber_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guitar_Tabber_Tests.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				4919B2421DA795C200CF9978 /* AppDelegate.swift */,
 				4919B2441DA795C200CF9978 /* ViewController.swift */,
 				4919B2461DA795C200CF9978 /* Main.storyboard */,
+				CA1CE9281DDF534500F01B9E /* MusicInformationViewController.swift */,
 				CA9A8BA71DDDB22D0024EFEA /* MusicSheetViewController.swift */,
 				49CE40351DAB9B36001E7425 /* TableViewCell.swift */,
 				4919B2491DA795C200CF9978 /* Assets.xcassets */,
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49CE402E1DAB603B001E7425 /* RawNote.swift in Sources */,
+				CA1CE9291DDF534500F01B9E /* MusicInformationViewController.swift in Sources */,
 				49CE402D1DAB603B001E7425 /* GuitarTuner.swift in Sources */,
 				494298031DBE452200722340 /* Song_Page.swift in Sources */,
 				4919B2451DA795C200CF9978 /* ViewController.swift in Sources */,

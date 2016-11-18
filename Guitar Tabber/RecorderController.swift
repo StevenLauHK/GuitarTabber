@@ -10,6 +10,7 @@ import UIKit
 
 class RecorderController: UIViewController {
 
+    @IBOutlet var convertButton: UIButton!
     var song: Song?
     var recogniser: NoteRecogniser?
     
@@ -18,6 +19,7 @@ class RecorderController: UIViewController {
     var tempo = 95
     var timeSignature = (4, 4)
     
+    @IBOutlet var stat: UILabel!
     
     @IBAction func start(_ sender: Any) {
         if !recording {
@@ -27,10 +29,13 @@ class RecorderController: UIViewController {
             song = Song(tempo: tempo, timeSignature: timeSignature)
             recogniser = NoteRecogniser(song: song!)
         }
+        stat.text = "Recording"
 
     }
 
     @IBAction func stop(_ sender: Any) {
+        
+        convertButton.isEnabled = true
         if recording {
             song = recogniser?.getSong()
             print(song ?? "Couldnt get the song")
@@ -39,6 +44,14 @@ class RecorderController: UIViewController {
             recording = false
         }
         // Go to see the tab
+        for campass in (song?.compasses)! {
+            print("campass")
+            for a in campass.notes{
+                let(location,realdata) = a.inGuitar
+                print("location:\(location),data:\(realdata)")
+            }
+        }
+        stat.text = "Finish"
     }
     
     override func viewDidLoad() {
@@ -51,4 +64,15 @@ class RecorderController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func convert(_ sender: UIButton) {
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "musicInformation") as! MusicInformationViewController
+        var temp:String = "Frank is here"
+        myVC.stringPassed = temp
+        navigationController?.pushViewController(myVC, animated: true)
+    }
+    
+
+    
+    
 }

@@ -81,7 +81,7 @@ class NoteRecogniser: TunerDelegate {
                     note.setPitch(pitch: pitch)
                     note.octave = octave
                     
-                    print("Note finished by end of itself")
+                    //print("Note finished by end of itself")
                     note.finish()
                     song.insertRawNote(noteToInsert: note)
                     currentNote = nil
