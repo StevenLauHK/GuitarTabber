@@ -8,21 +8,34 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 		<key>Chronos-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Pods-Guitar Tabber.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>SFGaugeView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>TuningFork.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -37,7 +50,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>367180281D677987F28A6929B360D331</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C1A4E66DEB767F8253F95A7B353530D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5EECCD049B5A1BBC2B4117857B86C637</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>99F1E6CA0375766F28A4996192244821</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6DCD8D049E461277122F7230244FCF8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC37879F88BE8F5A061CE589076B86B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
