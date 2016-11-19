@@ -9,33 +9,53 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>1</integer>
+=======
+			<integer>0</integer>
+>>>>>>> origin/master
 		</dict>
 		<key>Chronos-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>2</integer>
+=======
+			<integer>1</integer>
+>>>>>>> origin/master
 		</dict>
 		<key>Pods-Guitar Tabber.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>3</integer>
+=======
+			<integer>2</integer>
+>>>>>>> origin/master
 		</dict>
 		<key>SFGaugeView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>5</integer>
+=======
+			<integer>4</integer>
+>>>>>>> origin/master
 		</dict>
 		<key>TuningFork.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>4</integer>
+=======
+			<integer>3</integer>
+>>>>>>> origin/master
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
