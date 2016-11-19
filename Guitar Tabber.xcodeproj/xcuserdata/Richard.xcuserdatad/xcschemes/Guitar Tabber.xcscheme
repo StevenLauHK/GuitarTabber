@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CD0370981DD5E946003585C4"
+               BuildableName = "Guitar TabberTests.xctest"
+               BlueprintName = "Guitar TabberTests"
+               ReferencedContainer = "container:Guitar Tabber.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CD0370841DD56F60003585C4"
+               BuildableName = "Guitar Tabber Tests.xctest"
+               BlueprintName = "Guitar Tabber Tests"
+               ReferencedContainer = "container:Guitar Tabber.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
